@@ -1,0 +1,58 @@
+public class Ass3
+{
+    Node head;
+    class Node
+    {
+      int data;
+      Node next;
+    }
+public void Deletion()
+{
+    Node curr = head;
+    Node ptr = head.next;
+      while(curr != null && ptr != null)
+      {
+        if(curr.data == ptr.data)
+        {
+          curr.next = curr.next.next;
+        }
+        curr = curr.next;
+        ptr = ptr.next;
+      }
+}
+void push(int data)
+{
+    Node new_Node = new Node();
+    new_Node.data = data;
+    new_Node.next = head;
+    head = new_Node;
+}
+public void Displaylst()
+{
+    Node current = head;
+    while (current != null)
+    {
+        System.out.println(current.data + " ");
+        current = current.next;
+        
+    }
+    System.out.println();
+}
+    public static void main(String[] args)
+    {
+
+        Ass3 l = new Ass3();
+       l.push(5);
+       l.push(5);
+       l.push(4);
+       l.push(4);
+       l.push(2);
+       System.out.println("created linkedlist is : ");
+       l.Displaylst();
+       System.out.println();
+       l.Deletion();
+       System.out.println("After the deletion");
+       l.Displaylst();
+    }
+    
+}
