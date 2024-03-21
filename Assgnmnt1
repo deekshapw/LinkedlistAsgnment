@@ -1,0 +1,64 @@
+public class Ass1 
+{
+    
+    class Node
+    {
+         int data;
+         Node next;
+         Node(int d)
+         {
+            data = d;
+            next = null;
+         }
+    }
+    Node head;
+    public void push(int newData)
+    {
+        Node newNode = new Node(newData);
+        newNode.next = head;
+        head = newNode;
+        return;
+    }
+    public boolean elemPresent(Node head , int x )
+    {
+        Node current = head;
+        while (current!=null) 
+        {
+            if(current.data == x)
+            {
+              return true;
+            }
+            current = current.next;
+            
+        }
+        return false;
+    }
+    
+    public void Displaylst()
+    {
+        Node ptr = head;
+        while( ptr!= null)
+        {
+            System.out.println(ptr.data + " ");
+            ptr = ptr.next;
+        }
+    }
+
+    public static void main(String[] args)
+    {
+    Ass1 l1 = new Ass1();
+    l1.push(21);
+    l1.push(22);
+    l1.push(11);
+    l1.push(43);
+    l1.push(23);
+    l1.Displaylst();
+    System.out.println();
+    if(l1.elemPresent(l1.head, 14))
+    {
+      System.out.println("yes");
+    }
+    System.out.println("No");
+    }
+    
+}
